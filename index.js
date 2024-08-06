@@ -70,7 +70,7 @@ const token = "EAAG3z4f9pZAYBO9ClSQgBesCpfUPsLL2e0GJT2yn3pDZCJM8nr2b2lWBWkOzDgnf
 function sendTextMessage(sender, text) {
 	let messageData = { text:text }
 	request({
-		url: 'https://graph.facebook.com/v20.0/me/messages?',
+		url: 'https://graph.facebook.com/v20.0/me/messages',
 		qs: {access_token:token},
 		method: 'POST',
 		json: {
@@ -79,7 +79,7 @@ function sendTextMessage(sender, text) {
 			message: messageData,
 		}
 	}, function(error, response, body) {
-		console.log(error, response, body)
+		console.log(error, response, body);
 		if (error) {
 			console.log('Error sending messages: ', error)
 		} else if (response.body.error) {
@@ -129,6 +129,7 @@ function sendGenericMessage(sender) {
 			message: messageData,
 		}
 	}, function(error, response, body) {
+		console.log(error, response, body)
 		if (error) {
 			console.log('Error sending messages: ', error)
 		} else if (response.body.error) {
