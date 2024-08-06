@@ -85,6 +85,7 @@ function sendTextMessage(sender, text) {
 		} else if (response.body.error) {
 			console.log('Error: ', response.body.error)
 		}
+		console.log(response)
 	})
 }
 
