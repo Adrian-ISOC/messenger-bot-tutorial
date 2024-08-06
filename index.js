@@ -37,7 +37,7 @@ app.get('/webhook/', function (req, res) {
 		res.send('Error, wrong token')
 	}
 })
-
+//EAAG3z4f9pZAYBO9ClSQgBesCpfUPsLL2e0GJT2yn3pDZCJM8nr2b2lWBWkOzDgnf2wDCqJ2nZCIBbIG0uW9Kz1aOUPuOppegde7WjnKgUfJMH0nN5Cp3lg9JBc07VzzWjLCpsOurzEZCfPvIvRsaZCPp5Qul7XHe0w0AEJzpmwhfg5HYA0nmEdT7Xj0q2kXDwlHlFgOll6gZDZD
 // to post data
 app.post('/webhook/', function (req, res) {
 	let messaging_events = req.body.entry[0].messaging
@@ -65,7 +65,7 @@ app.post('/webhook/', function (req, res) {
 
 // recommended to inject access tokens as environmental variables, e.g.
 // const token = process.env.FB_PAGE_ACCESS_TOKEN
-const token = "5f77b2954c9721aa700a609f75af126a"
+const token = "EAAG3z4f9pZAYBO9ClSQgBesCpfUPsLL2e0GJT2yn3pDZCJM8nr2b2lWBWkOzDgnf2wDCqJ2nZCIBbIG0uW9Kz1aOUPuOppegde7WjnKgUfJMH0nN5Cp3lg9JBc07VzzWjLCpsOurzEZCfPvIvRsaZCPp5Qul7XHe0w0AEJzpmwhfg5HYA0nmEdT7Xj0q2kXDwlHlFgOll6gZDZD"
 
 function sendTextMessage(sender, text) {
 	let messageData = { text:text }
