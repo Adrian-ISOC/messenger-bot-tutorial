@@ -81,6 +81,7 @@ function sendTextMessage(sender, text) {
 			message: messageData,
 		}
 	}, function(error, response, body) {
+		console.log(body)
 		if (error) {
 			console.log('Error sending messages: ', error)
 		} else if (response.body.error) {
@@ -131,6 +132,7 @@ function sendGenericMessage(sender) {
 			message: messageData,
 		}
 	}, function(error, response, body) {
+		console.log(body)
 		if (error) {
 			console.log('Error sending messages: ', error)
 		} else if (response.body.error) {
