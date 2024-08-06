@@ -41,6 +41,7 @@ app.get('/webhook/', function (req, res) {
 // to post data
 app.post('/webhook/', function (req, res) {
 	let messaging_events = req.body.entry[0].messaging
+	console.log(messaging_events)
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = req.body.entry[0].messaging[i]
 		let sender = event.sender.id
@@ -48,7 +49,7 @@ app.post('/webhook/', function (req, res) {
 			let text = event.message.text
 			if (text === 'Generic'){ 
 				console.log("welcome to chatbot")
-				//sendGenericMessage(sender)
+				sendGenericMessage(sender)
 				continue
 			}
 			sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
@@ -69,7 +70,7 @@ const token = "EAAG3z4f9pZAYBO9ClSQgBesCpfUPsLL2e0GJT2yn3pDZCJM8nr2b2lWBWkOzDgnf
 
 function sendTextMessage(sender, text) {
 	let messageData = { text:text }
-	
+	console.log(messageData)
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token:token},
