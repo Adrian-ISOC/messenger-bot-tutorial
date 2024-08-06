@@ -72,11 +72,12 @@ function sendTextMessage(sender, text) {
 	let messageData = { text:text }
 	console.log(messageData)
 	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
+		url: 'https://graph.facebook.com/v20.0/61563429377720/messages?access_token=EAAG3z4f9pZAYBO9ClSQgBesCpfUPsLL2e0GJT2yn3pDZCJM8nr2b2lWBWkOzDgnf2wDCqJ2nZCIBbIG0uW9Kz1aOUPuOppegde7WjnKgUfJMH0nN5Cp3lg9JBc07VzzWjLCpsOurzEZCfPvIvRsaZCPp5Qul7XHe0w0AEJzpmwhfg5HYA0nmEdT7Xj0q2kXDwlHlFgOll6gZDZD',
 		qs: {access_token:token},
 		method: 'POST',
 		json: {
 			recipient: {id:sender},
+			messageType: "RESPONSE",
 			message: messageData,
 		}
 	}, function(error, response, body) {
