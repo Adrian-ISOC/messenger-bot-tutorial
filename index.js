@@ -9,8 +9,8 @@ const bot = new BootBot({
 
 bot.on('message', (payload, chat) => {
   const text = payload.message.text;
-  console.log('text', text);
-  chat.say(`Echo: ${text}`);
+  const userId = payload.sender.id;
+  bot.say(userId, 'Hello World');
 });
 
 bot.hear(['hello', 'hi', /hey( there)?/i], (payload, chat) => {
