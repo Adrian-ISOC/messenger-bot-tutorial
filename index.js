@@ -2,7 +2,7 @@
 const BootBot = require('bootbot');
 
 const bot = new BootBot({
-  accessToken: 'EAAG3z4f9pZAYBOwhadtT6wvIl1vMA8UBszErT7h2nWW3OzkVDMk11ZBtkQwRwOxSvhatozlZAtSUxc5ImZAlIYvkACsyWOyx7suNQyHeNH8YTTM4M3c3ZBmynQuYOcE8LvfzgQDFCdPjZCVATZCmRk4vzXPz2xRrynJEQjlQW9K2yc0KedVmHM6dZCvKGuzRBQ3hsEE4zXCo8QZDZD',
+  accessToken: 'EAAG3z4f9pZAYBOZBZC5ZCN60WT5ZAX6DqiUgPr7lcJYutFmgIVc8hs7zpjhs5kdYhFyO17Ok36YmZAdNZAXTIwPSOiQNG6pzKZChbfaaEQ8F8ACvhWOIUuBc6JatjNyMUV51WMGNW37vXk85y2StGw5uGtyKLiZCucCU5IJ2PCGYqKxhCqmCfzernoQHakLb8vmJU4ZBL2UAKyeAZDZD',
   verifyToken: 'thisisasampletoken',
   appSecret: '5f77b2954c9721aa700a609f75af126a'
 }); 
@@ -11,8 +11,9 @@ const bot = new BootBot({
 
 bot.on('message', (payload, chat) => {
   const text = payload.message.text;
+  console.log('text', text);
   const userId = payload.sender.id;
-  bot.say(userId, 'Hello World');
+  chat.say(userId, 'Hello World');
 });
 
 bot.hear(['hello', 'hi', /hey( there)?/i], (payload, chat) => {
