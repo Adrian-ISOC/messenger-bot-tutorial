@@ -1,4 +1,8 @@
 'use strict';
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
 const BootBot = require('bootbot');
 
 const bot = new BootBot({
@@ -7,21 +11,20 @@ const bot = new BootBot({
   appSecret: '1eb4c94cbee35d7c7c1fdcde621d70f4'
 }); 
 
+app.post('/webhook', function(req, res) {
+  console.log(req);
+  bot._handleMessage(req.body);
+  res.end(JSON.stringify({ status: 'ok' }));
+});
+
+
 
 
 bot.on('message', (payload, chat) => {
   const text = payload.message.text;
-  console.log('text', text);
-  const userId = payload.sender.id;
-  chat.say(userId, 'Hello World');
+  console.log(`The user said: ${text}`);
+  chat.say(`Echo: ${text}`);
 });
 
-bot.hear(['hello', 'hi', /hey( there)?/i], (payload, chat) => {
-  console.log('payload', payload);
-	// Send a text message followed by another text message that contains a typing indicator
-	chat.say('Hello, human friend!').then(() => {
-		chat.say('How are you today?', { typing: true });
-	});
-});
 
 bot.start();
