@@ -22,7 +22,8 @@ app.post('/webhook', function(req, res) {
 
 bot.on('message', (payload, chat) => {
   const text = payload.message.text;
-  console.log(`The user said: ${text}`);
+  const userName = payload.sender.id;
+  console.log(`The user ${userName} said: ${text}`);
   chat.say(`Echo: ${text}`);
 });
 
